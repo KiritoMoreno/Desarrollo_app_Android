@@ -1,35 +1,22 @@
 const val PI = 3.1416
 fun main(args: Array<String>) {
-    println("Hello World!")
+    val nombre = "Andres"
 
-    var dinero = 30
-    println(dinero)
-    dinero = 5
-    println(dinero)
+    if(nombre.isNotEmpty()){
+        println("El largo de nuestra variable nombre es: ${nombre.length}")
+    }else{
+        println("Error, la variable esta vacia")
+    }
 
-    val nombre = "Moreno"
-    println(nombre)
-    println(PI)
-
-    val booleanVar= true
-    val numeroLargo = 3L
-    val doubleNum = 2.7182
-    val floatNum = 1.1f
-
-    val primerValor = 20
-    var segundoValor = 10
-
-    val tercerValor = primerValor - segundoValor
-    println(tercerValor)
-
-    // Cadenas de texto
-    val apellido = "Moreno"
-    val name = "Andres"
-
-    val nombreCompleto = "Mi nombre es $name $apellido"
-    println(nombreCompleto)
-
-
+    val name = ""
+    val mensaje: String = if (name.length <= 4) {
+        "Tienes un nombre corto"
+    } else if(name.isEmpty()){
+        "Nombre esta vacio"
+    }else{
+        "Tienes un nombre corto"
+    }
+    println(mensaje)
 
 
 }
