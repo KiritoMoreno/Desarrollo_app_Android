@@ -1,36 +1,30 @@
 
 fun main(args: Array<String>) {
-    // Diferentes tipos de Listas
-    val listaDeNombre= listOf<String>("Juan", "Enrique", "Camila")
-    println(listaDeNombre)
+    // Como obtener listas con las funciones que tiene kotlin
 
-    // Lista mutable
-    val listaVacia= mutableListOf<String>()
-    println(listaVacia)
+    val numerosDeLoteria = listOf(11,22,43,56,78,66)
+    // Ordenar las listas
+    val numerosSorted = numerosDeLoteria.sorted()
+    println(numerosSorted)
 
-    listaVacia.add("Juan")
-    println(listaVacia)
+    val numerosDesc = numerosDeLoteria.sortedDescending()
+    println(numerosDesc)
 
-    // Obtener un valor de la lista
-    val valorUsandoGet = listaVacia.get(0)
-    println(valorUsandoGet)
+    // Permite ordenar dependiendo de una condición
+    val ordenarPorMultiplos = numerosDeLoteria.sortedBy { numero -> numero < 50 }
+    println(ordenarPorMultiplos)
 
-    val valorUsandoOperador = listaVacia[0]
-    println(valorUsandoOperador)
+    // Ordenar una lista de una forma aleatoria
+    val numerosAleatorios = numerosDeLoteria.shuffled()
+    println(numerosAleatorios)
 
-    val primerValor= listaDeNombre.firstOrNull()
-    println(primerValor)
+    val numerosEnReversa = numerosDeLoteria.reversed()
+    println(numerosEnReversa)
 
-    // Eliminar elemento de una lista
-    listaVacia.removeAt(0)
-    println(listaVacia)
+    //Dos funciones de programación funcional
+    val mensajesDeNumeros = numerosDeLoteria.map { numero -> "Tu numero de lotería es $numero" }
+    println(mensajesDeNumeros)
 
-    listaVacia.add("Enrique")
-    println(listaVacia)
-    listaVacia.removeIf{caracteres -> caracteres.length > 3}
-    println(listaVacia)
-
-    //Concepto de arrays en kotlin-> solamente si estamos usando codigo con miles de datos
-    val myArray = arrayOf(1,2,3,4)
-    println("Array como lista ${myArray.toList()}")
+    val numerosFiltrados = numerosDeLoteria.filter{numero -> numero > 50}
+    println(numerosFiltrados)
 }
