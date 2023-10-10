@@ -1,30 +1,38 @@
 
 fun main(args: Array<String>) {
-    // Como obtener listas con las funciones que tiene kotlin
+    // Maps -> Son elementos de clave valor.
+    // Nos permite ordenar los elementos de una forma que tenemos una clave que tiene asignado un valor
 
-    val numerosDeLoteria = listOf(11,22,43,56,78,66)
-    // Ordenar las listas
-    val numerosSorted = numerosDeLoteria.sorted()
-    println(numerosSorted)
+    // Mapa Inmutables
+    val edadSuperHeroes = mapOf(
+        "Ironman" to 35,
+        "Spiderman" to 23,
+        "Capitan America" to 99
+    ) // se accede mediante las keys
+    println(edadSuperHeroes)
 
-    val numerosDesc = numerosDeLoteria.sortedDescending()
-    println(numerosDesc)
+    //Mapa Mutable -> Permite que se modifiquen elementos
+    val edadSuperHeroesMutable = mutableMapOf(
+        "Ironman" to 35,
+        "Spiderman" to 23,
+        "Capitan America" to 99
+    )
+    println(edadSuperHeroesMutable)
+    //Agregamos
+    edadSuperHeroesMutable.put("Wolverine",45)
+    println(edadSuperHeroesMutable)
 
-    // Permite ordenar dependiendo de una condición
-    val ordenarPorMultiplos = numerosDeLoteria.sortedBy { numero -> numero < 50 }
-    println(ordenarPorMultiplos)
+    edadSuperHeroesMutable["Storm"] = 30
+    println(edadSuperHeroesMutable)
 
-    // Ordenar una lista de una forma aleatoria
-    val numerosAleatorios = numerosDeLoteria.shuffled()
-    println(numerosAleatorios)
+    val edadIronman = edadSuperHeroesMutable["Ironman"]
+    println(edadIronman)
 
-    val numerosEnReversa = numerosDeLoteria.reversed()
-    println(numerosEnReversa)
+    // Eliminar elementos de nuestro mapa
+    edadSuperHeroesMutable.remove("Wolverine")
+    println(edadSuperHeroesMutable)
 
-    //Dos funciones de programación funcional
-    val mensajesDeNumeros = numerosDeLoteria.map { numero -> "Tu numero de lotería es $numero" }
-    println(mensajesDeNumeros)
-
-    val numerosFiltrados = numerosDeLoteria.filter{numero -> numero > 50}
-    println(numerosFiltrados)
+    // Conocer todas las claves y valores
+    println(edadSuperHeroesMutable.keys)
+    println(edadSuperHeroesMutable.values)
 }
