@@ -1,14 +1,17 @@
-const val PI = 3.1416
-fun main(args: Array<String>) {
-    var contador = 10
-    while(contador > 0){
-        println("El valor del contador es $contador")
-        contador--
-    }
 
-    do{
-        println("Generando numero aleatorio...")
-        val numeroAleatorio = (0..100).random()
-        println("El numero generado es $numeroAleatorio")
-    }while(numeroAleatorio>50)
+fun main(args: Array<String>) {
+    val listaDeFrutas = listOf("Manzana", "Fresa", "Durazno")
+
+    for(fruta in listaDeFrutas){
+        println("Hoy me comere una $fruta")
+    }
+    listaDeFrutas.forEach { fruta ->  println("Hoy me comere una $fruta nueva") }
+
+    val characterisesFruit:List<Int> = listaDeFrutas.map { fruta -> fruta.length }
+    print(characterisesFruit)
+
+    val listaFiltrada = characterisesFruit.filter { largoFruta -> largoFruta>5 }
+    print(listaFiltrada)
+
+
 }
