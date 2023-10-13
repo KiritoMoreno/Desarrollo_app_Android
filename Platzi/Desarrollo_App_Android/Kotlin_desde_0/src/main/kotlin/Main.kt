@@ -1,22 +1,21 @@
 
 fun main(args: Array<String>) {
-    // Sets -> No pueden tener elementos repetidos
+    //Funciones y funciones de extensión
+    
+    val fraseAleatoria = "Nunca paramos de aprender".randomCase()
 
-    // Set Inmutable
-    val vocalesRepetidas = setOf("a","e","i","o","u","a","e","i","o","u")
-    println(vocalesRepetidas) // No imprime los elementos repetidos
-
-    // Set Mutable
-    val numerosFavoritos = mutableSetOf(1,2,3,4)
-    println(numerosFavoritos)
-    numerosFavoritos.add(5)
-    println(numerosFavoritos)
-
-    // Eliminamos pasandole el valor que queremos quitar
-    numerosFavoritos.remove(5)
-    println(numerosFavoritos)
-
-    // Podemos obtener un elemento de esta forma,en base de una condición
-    val valorDelSet: Int? = numerosFavoritos.firstOrNull{ numero -> numero > 2}
-    println(valorDelSet)
+    imprimirFrase(fraseAleatoria)
+}
+fun imprimirFrase (frase : String): Unit{
+    println("Tu frase es : $frase")
+}
+// Función de extensión
+fun String.randomCase(): String {
+    val numeroAleatorio = 0..99
+    val resultadoAleatorio = numeroAleatorio.random()
+    return if(resultadoAleatorio.rem(2)==0){
+        this.toUpperCase()
+    }else{
+        this.toLowerCase()
+    }
 }
