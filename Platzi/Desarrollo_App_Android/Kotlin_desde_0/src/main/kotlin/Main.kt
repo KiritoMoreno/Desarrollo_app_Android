@@ -1,26 +1,15 @@
 
 fun main(args: Array<String>) {
-    // Llamamos High Order Functions
-    val largoDeValorInicial = superFuncion(valorInicial = "Hola!", block = {valor -> valor.length})
-    println(largoDeValorInicial)
-
-    val lambda: () -> String = funcionInception("Andres")
-    // tenemos que invocar el valor de la lambda para poder tener el valor
-    val valorLambda: String = lambda()
-    println(valorLambda)
-
-}
+    // Let nos permite combinado con el operador safecall, ejecutar un codigo solo cuando nuestra variable nulable no sea nula
 
 
-// Block es para renombrar las Lambdas
-// La superFuncion se va a encargar de abrir el lambda para que nos devuelva el valor
-fun superFuncion(valorInicial: String, block:(String) -> Int) : Int{
-    return block(valorInicial)
-}
-
-// Como hacer si queremos obtener una función de otra función
-fun funcionInception(nombre: String) :()-> String{
-    return {
-        "Hola desde la lambda $nombre"
+    var nombre : String? = null // Aqui no imprime nada
+    nombre?.let{
+        valor -> println("El nombre no es nulo, es $valor")
+    }
+    //Asignamos valor a nuestra variable
+    nombre = "Andres"
+    nombre?.let {
+            valor -> println("El nombre no es nulo, es $valor")
     }
 }
