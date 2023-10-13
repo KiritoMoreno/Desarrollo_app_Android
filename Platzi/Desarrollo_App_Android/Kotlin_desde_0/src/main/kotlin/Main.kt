@@ -1,21 +1,15 @@
 
 fun main(args: Array<String>) {
-    //Funciones y funciones de extensión
-    
-    val fraseAleatoria = "Nunca paramos de aprender".randomCase()
+    //Tipos de parámetros en las funciones
+    imprimirNombre(nombre= "Andres", apellido = "Moreno")
 
-    imprimirFrase(fraseAleatoria)
+
 }
-fun imprimirFrase (frase : String): Unit{
-    println("Tu frase es : $frase")
+// Parámetros nombrados
+fun imprimirNombre(nombre:String,apellido: String){
+    println("Mi nombre es $nombre y mi apellido es $apellido")
 }
-// Función de extensión
-fun String.randomCase(): String {
-    val numeroAleatorio = 0..99
-    val resultadoAleatorio = numeroAleatorio.random()
-    return if(resultadoAleatorio.rem(2)==0){
-        this.toUpperCase()
-    }else{
-        this.toLowerCase()
-    }
+// Parámetros por defecto
+fun imprimirNombre2(nombre:String, segundoNombre: String="", apellido:String){
+    println("Mi nombre completo es $nombre $segundoNombre $apellido")
 }
