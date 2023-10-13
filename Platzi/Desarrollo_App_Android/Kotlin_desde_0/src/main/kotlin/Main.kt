@@ -1,17 +1,26 @@
 
 fun main(args: Array<String>) {
-    //Lambdas
-    //creación de una lambda -  variable, tipo, tipo retorno,llaves{"puede devolver un valor,recomendación usar un parámetro explicito"}
-    val myLambda : (String) -> Int ={valor-> valor.length}
-    // Utilizamos Lambda
-    val lambdaEjecutada: Int = myLambda("Hola Mundo")
-    println(lambdaEjecutada)
+    // Llamamos High Order Functions
+    val largoDeValorInicial = superFuncion(valorInicial = "Hola!", block = {valor -> valor.length})
+    println(largoDeValorInicial)
 
-    // Podemos pasar las lambdas a otras funciones
-    val saludos = listOf("Hello", "Hola","ciao")
-    // En la función map recive un valor y va ejecutar esa lambda
-    val longitudDeSaludos = saludos.map(myLambda)
-    println(longitudDeSaludos)
+    val lambda: () -> String = funcionInception("Andres")
+    // tenemos que invocar el valor de la lambda para poder tener el valor
+    val valorLambda: String = lambda()
+    println(valorLambda)
+
+}
 
 
+// Block es para renombrar las Lambdas
+// La superFuncion se va a encargar de abrir el lambda para que nos devuelva el valor
+fun superFuncion(valorInicial: String, block:(String) -> Int) : Int{
+    return block(valorInicial)
+}
+
+// Como hacer si queremos obtener una función de otra función
+fun funcionInception(nombre: String) :()-> String{
+    return {
+        "Hola desde la lambda $nombre"
+    }
 }
