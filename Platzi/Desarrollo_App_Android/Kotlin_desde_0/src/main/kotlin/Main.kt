@@ -1,15 +1,10 @@
 
 fun main(args: Array<String>) {
-    // Let nos permite combinado con el operador safecall, ejecutar un codigo solo cuando nuestra variable nulable no sea nula
-
-
-    var nombre : String? = null // Aqui no imprime nada
-    nombre?.let{
-        valor -> println("El nombre no es nulo, es $valor")
-    }
-    //Asignamos valor a nuestra variable
-    nombre = "Andres"
-    nombre?.let {
-            valor -> println("El nombre no es nulo, es $valor")
+    // With nos permite acceder directamente a las propiedades de una variable que le pasamos por parámetro
+    // De esta forma evitamos llamar la variable en varias lineas
+    val colores = listOf("Azul", "Amarillo","Rojo")
+    with(colores){
+        println("Nuestros colores son $this")
+        println("Esta lista tiene una cantidad de colores de $size") // Si queremos acceder a las propiedad de colores,lo podemos hacer directamente con size
     }
 }
