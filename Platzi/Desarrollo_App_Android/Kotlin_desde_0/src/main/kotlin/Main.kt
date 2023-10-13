@@ -1,15 +1,17 @@
 
 fun main(args: Array<String>) {
-    //Tipos de parámetros en las funciones
-    imprimirNombre(nombre= "Andres", apellido = "Moreno")
+    //Lambdas
+    //creación de una lambda -  variable, tipo, tipo retorno,llaves{"puede devolver un valor,recomendación usar un parámetro explicito"}
+    val myLambda : (String) -> Int ={valor-> valor.length}
+    // Utilizamos Lambda
+    val lambdaEjecutada: Int = myLambda("Hola Mundo")
+    println(lambdaEjecutada)
+
+    // Podemos pasar las lambdas a otras funciones
+    val saludos = listOf("Hello", "Hola","ciao")
+    // En la función map recive un valor y va ejecutar esa lambda
+    val longitudDeSaludos = saludos.map(myLambda)
+    println(longitudDeSaludos)
 
 
-}
-// Parámetros nombrados
-fun imprimirNombre(nombre:String,apellido: String){
-    println("Mi nombre es $nombre y mi apellido es $apellido")
-}
-// Parámetros por defecto
-fun imprimirNombre2(nombre:String, segundoNombre: String="", apellido:String){
-    println("Mi nombre completo es $nombre $segundoNombre $apellido")
 }
